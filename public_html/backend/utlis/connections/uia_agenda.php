@@ -2,13 +2,7 @@
 
 require_once("../../utlis/adodb5/adodb.inc.php");
 
-/*
-  Inicializacion de la conexion
-  Desarrollo o produccion
- */
-
 global $config_AMBIENTE_BD;
-
 switch ($config_AMBIENTE_BD) {
     case "desarrollo":
         $driver = 'mysqli';
@@ -16,7 +10,7 @@ switch ($config_AMBIENTE_BD) {
         $labAdodb->setCharset('utf8');
         $labAdodb->setConnectionParameter('CharacterSet', 'WE8ISO8859P15');
         $labAdodb->Connect("localhost", "root", "", "bd_serv_michi");
-       
+    
         break;
     case "produccion":
         $driver = 'mysqli';
