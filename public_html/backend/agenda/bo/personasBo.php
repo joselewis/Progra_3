@@ -1,6 +1,5 @@
 <?php
 
-
 require_once("../domain/personas.php");
 require_once("../dao/personasDao.php");
 
