@@ -35,14 +35,17 @@ function addOrUpdatePersonas() {
         $.ajax({
             url: '../backend/agenda/controller/personasController.php', 
             data: {
-                quequiereHacerelsuaurio:           "registrarse",
-                PK_cedula:      $("#txtPK_cedula").val(),
-                nombre:         $("#txtnombre").val(),
+                quequiereHacerelsuaurio:            "registrarse",
+                PK_cedula:                                 $("#txtPK_cedula").val(),
+                nombre:                                       $("#txtnombre").val(),
                 apellido1:      $("#txtapellido1").val(),
                 apellido2:      $("#txtapellido2").val(),
                 fecNacimiento:  $("#txtfecNacimiento").val(),
                 sexo:           $("#txtsexo").val(),
-                observaciones:  $("#txtobservaciones").val()
+                observaciones:  $("#txtobservaciones").val(),
+                 idUsuario:   $("#txtidUsuario").val(),
+                 Contrasenna:  $("#txtContrasenna").val(),
+                 Tipo_Usuario: $("#txtTipo_Usuario").val()
             },
             error: function () { //si existe un error en la respuesta del ajax
                 swal("Error", "Se presento un error al enviar la informacion", "error");

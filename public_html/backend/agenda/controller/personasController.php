@@ -2,15 +2,10 @@
 
 require_once("../bo/personasBo.php");
 require_once("../domain/personas.php");
+require_once("../bo/UsuarioBo.php");
+require_once("../domain/Usuario.php");
 
 
-/**
- * This class contain all services methods of the table Personas
- * @author ChGari
- * Date Last  modification: Fri Jul 24 11:28:43 CST 2020
- * Comment: It was created
- *
- */
 //************************************************************
 // Personas Controller 
 //************************************************************
@@ -21,24 +16,33 @@ if (filter_input(INPUT_POST, 'quequiereHacerelsuaurio') != null) {
     try {
         $myPersonasBo = new PersonasBo();
         $myPersonas = Personas::createNullPersonas();
+        $myUsuariosBo = new UsuarioBo();
+        $myUsuarios= Usuario::createNullUsuario();
 
         //***********************************************************
         //choose the action
         //***********************************************************
 
-        if ($action === "registrarse" or $action === "update_personas") {
+        if ($action === "registrarse" or $action === "update_Usuario") {
             //se valida que los parametros hayan sido enviados por post
-            if ((filter_input(INPUT_POST, 'PK_cedula') != null) && (filter_input(INPUT_POST, 'nombre') != null) && (filter_input(INPUT_POST, 'apellido1') != null) && (filter_input(INPUT_POST, 'apellido2') != null) && (filter_input(INPUT_POST, 'fecNacimiento') != null) && (filter_input(INPUT_POST, 'sexo') != null) && (filter_input(INPUT_POST, 'observaciones') != null)) {
+            echo("Aqui");
+            if ((filter_input(INPUT_POST, 'PK_cedula') != null) && (filter_input(INPUT_POST, 'nombre') != null) && (filter_input(INPUT_POST, 'apellido1') != null) && (filter_input(INPUT_POST, 'apellido2') != null) && (filter_input(INPUT_POST, 'fecNacimiento') != null) && (filter_input(INPUT_POST, 'sexo') != null)) {
+                //$personasguardar = Personas::createPersonas();
                 $myPersonas->setPK_cedula(filter_input(INPUT_POST, 'PK_cedula'));
                 $myPersonas->setnombre(filter_input(INPUT_POST, 'nombre'));
                 $myPersonas->setapellido1(filter_input(INPUT_POST, 'apellido1'));
                 $myPersonas->setapellido2(filter_input(INPUT_POST, 'apellido2'));
                 $myPersonas->setfecNacimiento(filter_input(INPUT_POST, 'fecNacimiento'));
                 $myPersonas->setsexo(filter_input(INPUT_POST, 'sexo'));
-                $myPersonas->setobservaciones(filter_input(INPUT_POST, 'observaciones'));
                 $myPersonas->setLastUser('112540148');
+                $myUsuarios->setidUsuario(filter_input(INPUT_POST, 'idUsuario'));
+                $myUsuarios->setContrasenna(filter_input(INPUT_POST,'Contrasenna'));
+                $myUsuarios->setPersona_IDCedula(filter_input(INPUT_POST,'PK_cedula'));
+                $myUsuarios->setTipo_Usuario(filter_input(INPUT_POST,'Tipo_Usuario'));
+                echo("ho");
                 if ($action == "registrarse") {
                     $myPersonasBo->add($myPersonas);
+                    $myUsuariosBo -> add($myUsuarios);
                     echo('M~Registro Incluido Correctamente');
                 }
                 if ($action == "update_personas") {

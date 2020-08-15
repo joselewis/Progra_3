@@ -7,9 +7,6 @@ class Usuario extends BaseDomain implements \JsonSerializable{
 
     //attributes
     private $idUsuario;
-    private $Activo;
-    private $Fecha_Registro;
-    private $Fecha_Actualizacion;
     private $Contrasenna;
     private $Persona_IDCedula;
     private $Tipo_Usuario;
@@ -25,15 +22,13 @@ class Usuario extends BaseDomain implements \JsonSerializable{
         return $instance;
     }
 
-    public static function createUsuario($idUsuario, $Activo, $Fecha_Registro, $Fecha_Actualizacion, $Persona_IDCedula, $Tipo_Usuario, $Contrasenna) {
+    public static function createUsuario($idUsuario, $Persona_IDCedula, $Tipo_Usuario, $Contrasenna) {
         $instance = new self();
         $instance->idUsuario        = $idUsuario;
-        $instance->Activo           = $Activo;
-        $instance->Fecha_Registro        = $Fecha_Registro;
-        $instance->Fecha_Actualizacion        = $Fecha_Actualizacion;
+        $instance->Contrasenna    = $Contrasenna;
         $instance->Persona_IDCedula        = $Persona_IDCedula;
         $instance->idCat_Rol_Usuario        = $Tipo_Usuario;
-        $instance->Contrasenna    = $Contrasenna;
+        
         return $instance;
     }
 
@@ -48,36 +43,6 @@ class Usuario extends BaseDomain implements \JsonSerializable{
         $this->idUsuario = $idUsuario;
     }
 
-    /****************************************************************************/
-
-    public function getActivo() {
-        return $this->Activo;
-    }
-
-    public function setActivo($Activo) {
-            $this->Activo = $Activo;
-    }
-    
-    /****************************************************************************/
-
-    public function getFecha_Registro() {
-        return $this->Fecha_Registro;
-    }
-
-    public function setFecha_Registro($Fecha_Registro) {
-            $this->Fecha_Registro = $Fecha_Registro;
-    }
-
-    /****************************************************************************/
-
-    public function getFecha_Actualizacion() {
-        return $this->Fecha_Actualizacion;
-    }
-
-    public function setFecha_Actualizacion($Fecha_Actualizacion) {
-        $this->Fecha_Actualizacion = $Fecha_Actualizacion;
-    }
-    
     /****************************************************************************/
 
     public function getPersona_IDCedula() {

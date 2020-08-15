@@ -10,11 +10,14 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <script src="../JS/lib/jquery/dist/jquery.min.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         
+        <link href="../CSS/Estilos.css" rel="stylesheet" type="text/css"/>
+        <link href="../CSS/Mapa.css" rel="stylesheet" type="text/css"/>
+        <script src="../JS/Mapa.js" type="text/javascript"></script>
         
         <script src="../JS/lib/sweetAlert2/dist/sweetalert2.all.min.js" type="text/javascript"></script>
         <link href="../JS/lib/sweetAlert2/dist/sweetalert2.min.css" rel="stylesheet" type="text/css"/>
-        
         
         <script src="../JS/personasFunctions.js" type="text/javascript"></script>
         
@@ -56,55 +59,70 @@
                 </div>
          </nav>
  
-<!-- ********************************************************** -->
-<!-- ********************************************************** -->
-<!-- ********************************************************** -->
+                                                <!-- ********************************************************** -->
+                                                <!--**********************FORMULARIO***********************-->
+                                                <!-- ********************************************************** -->
 
-<div class="row">
-    <div class="col-md-12">
-        <form role="form" onsubmit="return false;" id="formPersonas">
-            <div class="row">
-                <!-- ******************************************************** -->
-                <!-- Campos de formulario      -->
-                <!-- ******************************************************** -->
-                <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <form role="form" onsubmit="return false;" id="formPersonas">
+                    <div class="row">
+                                                <!-- ******************************************************** -->
+                                                <!-- Campos de formulario      -->
+                                                <!-- ******************************************************** -->
+                        <div class="col-md-12">
 
-                    <div class="form-group" id="groupPK_cedula">
-                        <label for="txtPK_cedula">Cédula</label>
-                        <input type="text" class="form-control" id="txtPK_cedula"  placeholder="">
+                            <div class="form-group" id="groupPK_cedula">
+                                <label for="txtPK_cedula">Cédula</label>
+                                <input type="text" class="form-control" id="txtPK_cedula"  placeholder="">
+                            </div>
+                            <div class="form-group" id="groupnombre">
+                                <label for="txtnombre">Nombre</label>
+                                <input type="text" class="form-control" id="txtnombre"  placeholder="">
+                            </div>
+                            <div class="form-group" id="groupapellido1">
+                                <label for="txtapellido1">Primer apellido</label>
+                                <input type="text" class="form-control" id="txtapellido1"  placeholder="">
+                            </div>
+                            <div class="form-group" id="groupapellido2">
+                                <label for="txtapellido2">Segundo apellido</label>
+                                <input type="text" class="form-control" id="txtapellido2"  placeholder="">
+                            </div>
+                            <div class="form-group" id="groupfecNacimiento">
+                                <label for="txtfecNacimiento">Fecha de Nacimiento</label>
+                                <input type="text" class="form-control" id="txtfecNacimiento"  placeholder="">
+                            </div>
+                            <div class="form-group" id="groupsexo">
+                                <label for="txtsexo">Genero</label>
+                                <input type="text" class="form-control" id="txtsexo"  placeholder="">
+                            </div>
+                            <div class="form-group" id="groupNombre_Usuario">
+                                <label for="txtUsuario">Nombre de usuario</label>
+                                <input type="text" class="form-control" id="txtidUsuario"  placeholder="">
+                            </div>
+                            <div class="form-group" id="groupContrasenna">
+                                <label for="txtContraseña">Contraseña</label>
+                                <input type="text" class="form-control" id="txtContrasenna"  placeholder="">
+                            </div>
+                            <div class="form-group" id="groupTipo_Usuario">
+                                <label for="txtTipo_Usuario">Usuario o Chofer</label>
+                                <input type="text" class="form-control" id="txtTipo_Usuario"  placeholder="">
+                            </div>
+                            <center>
+                                    <div id="coordenadas"></div>
+                                    <div id="map-container" class="z-depth-1" style="height: 500px; width: 600px;"></div>
+                                    <script
+                                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrWBUM4BClWO4HXgDsy8l1tbgpWlxT_xc&callback=mostrarMapa">
+                                    </script>
+                            </center>
+                            <div class="form-group">
+                                <input type="hidden" id="typeAction" value="" />
+                                <input type="hidden" value="" id="idTarea"/>
+                                <button type="submit" class="btn btn-primary" id="enviar">Crear</button>
+                                <button type="reset" class="btn btn-danger" id="cancelar">Borrar</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group" id="groupnombre">
-                        <label for="txtnombre">Nombre</label>
-                        <input type="text" class="form-control" id="txtnombre"  placeholder="">
-                    </div>
-                    <div class="form-group" id="groupapellido1">
-                        <label for="txtapellido1">Primer apellido</label>
-                        <input type="text" class="form-control" id="txtapellido1"  placeholder="">
-                    </div>
-                    <div class="form-group" id="groupapellido2">
-                        <label for="txtapellido2">Segundo apellido</label>
-                        <input type="text" class="form-control" id="txtapellido2"  placeholder="">
-                    </div>
-                    <div class="form-group" id="groupfecNacimiento">
-                        <label for="txtfecNacimiento">Fecha de Nacimiento</label>
-                        <input type="text" class="form-control" id="txtfecNacimiento"  placeholder="">
-                    </div>
-                    <div class="form-group" id="groupsexo">
-                        <label for="txtsexo">Correo</label>
-                        <input type="text" class="form-control" id="txtsexo"  placeholder="">
-                    </div>
-                    <div class="form-group" id="groupobservaciones">
-                        <label for="txtobservaciones">Contraseña</label>
-                        <input type="text" class="form-control" id="txtobservaciones"  placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <input type="hidden" id="typeAction" value="" />
-                        <input type="hidden" value="" id="idTarea"/>
-                        <button type="submit" class="btn btn-primary" id="enviar">Crear</button>
-                        <button type="reset" class="btn btn-danger" id="cancelar">Borrar</button>
-                    </div>
-                </div>
-            </div>
-        </form>
+                </form>
     </div>
 </div>

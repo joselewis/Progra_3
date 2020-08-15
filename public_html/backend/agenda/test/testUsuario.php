@@ -6,10 +6,8 @@ require_once ("../domain/Usuario.php");
 $obj_Usuario = new Usuario();
 $obj_Usuario->setidUsuario("joselewis");
 $obj_Usuario->setActivo(0);
-$obj_Usuario->setFecha_Registro(20190718);
-$obj_Usuario->setFecha_Actualizacion(20200718);
 $obj_Usuario->setPersona_IDCedula(116160613);
-$obj_Usuario->setTipo_Usuario(1);
+$obj_Usuario->setTipo_Usuario('Usuario');
 $obj_Usuario->setContrasenna("12345");
 
 $bo_Usuario = new UsuarioBo();

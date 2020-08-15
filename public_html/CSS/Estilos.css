@@ -43,10 +43,6 @@
    text-align: center;
 }
 
-.titulo_mapa{           /*GOOGLE MAPS*/
-    text-align: center;
-}
-
 .caja{
     width: 100px;
     height: 100px;
@@ -79,14 +75,4 @@
 
 .navbar-toggler{
     background-color: black;
-}
-
-.Tipo_Servicio{
-    margin: 10px;
-    text-align: center;
-}
-  
-#map {
-        height: 400px;  /* The height is 400 pixels */
-        width: 400px;  /* The width is the width of the web page */
 }
