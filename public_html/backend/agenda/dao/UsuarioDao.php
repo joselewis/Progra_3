@@ -23,12 +23,14 @@ class UsuarioDao {
 
         global $labAdodb;
         try {
-            $sql = sprintf("insert into Usuario (idUsuario, Contrasenna, Personas_PK_cedula, Tipo_Usuario ) 
-                                          values (%s,%s,%s,%s)",
+            $sql = sprintf("insert into Usuario (idUsuario, Contrasenna, Personas_PK_cedula, Tipo_Usuario, Ubicacion_Lat,Ubicacion_Long ) 
+                                          values (%s,%s,%s,%s,%s,%s)",
                     $labAdodb->Param("idUsuario"),
                     $labAdodb->Param("Contrasenna"),
                     $labAdodb->Param("Persona_IDCedula"),
-                    $labAdodb->Param("Tipo_Usuario"));
+                    $labAdodb->Param("Tipo_Usuario"),
+                    $labAdodb->Param("Lat"),
+                    $labAdodb->Param("Long"));
             $sqlParam = $labAdodb->Prepare($sql);
 
             $valores = array();
@@ -37,6 +39,8 @@ class UsuarioDao {
             $valores["Contrasenna"]       = $Usuario->getContrasenna();
             $valores["Persona_IDCedula"]       = $Usuario->getPersona_IDCedula();
             $valores["Tipo_Usuario"]   = $Usuario->getTipo_Usuario();
+            $valores["Lat"]   = $Usuario->getLat();
+            $valores["Long"]   = $Usuario->getLong();
 
             $labAdodb->Execute($sqlParam, $valores) or die($labAdodb->ErrorMsg());
         } catch (Exception $e) {

@@ -13,13 +13,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         
         <link href="../CSS/Estilos.css" rel="stylesheet" type="text/css"/>
-        <link href="../CSS/Mapa.css" rel="stylesheet" type="text/css"/>
-        <script src="../JS/Mapa.js" type="text/javascript"></script>
-        
+        <script src="../JS/personasFunctions.js" type="text/javascript"></script>
+
         <script src="../JS/lib/sweetAlert2/dist/sweetalert2.all.min.js" type="text/javascript"></script>
         <link href="../JS/lib/sweetAlert2/dist/sweetalert2.min.css" rel="stylesheet" type="text/css"/>
-        
-        <script src="../JS/personasFunctions.js" type="text/javascript"></script>
         
     </head>
     <body>       
@@ -108,6 +105,13 @@
                                 <label for="txtTipo_Usuario">Usuario o Chofer</label>
                                 <input type="text" class="form-control" id="txtTipo_Usuario"  placeholder="">
                             </div>
+                            <div class="form-group" id="groupLat">
+                               <input type="hidden" class="form-control" id="Lat" >
+                            </div>
+                            <div class="form-group" id="groupLong">
+                               <input type="hidden" class="form-control" id="long">
+                            </div>
+                            
                             <center>
                                     <div id="coordenadas"></div>
                                     <div id="map-container" class="z-depth-1" style="height: 500px; width: 600px;"></div>
@@ -118,8 +122,8 @@
                             <div class="form-group">
                                 <input type="hidden" id="typeAction" value="" />
                                 <input type="hidden" value="" id="idTarea"/>
-                                <button type="submit" class="btn btn-primary" id="enviar">Crear</button>
-                                <button type="reset" class="btn btn-danger" id="cancelar">Borrar</button>
+                                <button type="submit" class="btn btn-primary" id="enviar">Crear cuenta</button>
+                                <button type="reset" class="btn btn-danger" id="cancelar">Borrar datos</button>
                             </div>
                         </div>
                     </div>

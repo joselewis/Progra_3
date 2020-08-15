@@ -10,7 +10,8 @@ class Usuario extends BaseDomain implements \JsonSerializable{
     private $Contrasenna;
     private $Persona_IDCedula;
     private $Tipo_Usuario;
-    
+    private $Lat;
+    private $Long;
 
     //constructors
     public function __construct() {
@@ -22,12 +23,14 @@ class Usuario extends BaseDomain implements \JsonSerializable{
         return $instance;
     }
 
-    public static function createUsuario($idUsuario, $Persona_IDCedula, $Tipo_Usuario, $Contrasenna) {
+    public static function createUsuario($idUsuario, $Persona_IDCedula, $Tipo_Usuario, $Contrasenna,$Lat,$Long) {
         $instance = new self();
         $instance->idUsuario        = $idUsuario;
         $instance->Contrasenna    = $Contrasenna;
         $instance->Persona_IDCedula        = $Persona_IDCedula;
         $instance->idCat_Rol_Usuario        = $Tipo_Usuario;
+        $instance->Lat = $Lat;
+        $instance->Long = $Long; 
         
         return $instance;
     }
@@ -73,7 +76,28 @@ class Usuario extends BaseDomain implements \JsonSerializable{
         $this->Contrasenna = $Contrasenna;
     }
 
-    /****************************************************************************/
+     /****************************************************************************/
+    
+    function getLat() {
+        return $this->Lat;
+    }
+
+    function setLat($Lat) {
+        $this->Lat = $Lat;
+    }
+    
+    
+     /****************************************************************************/
+   
+    function getLong() {
+        return $this->Long;
+    }
+
+    function setLong($Long) {
+        $this->Long = $Long;
+    }
+
+        /****************************************************************************/
     //Convertir el obj a JSON
     /****************************************************************************/
     

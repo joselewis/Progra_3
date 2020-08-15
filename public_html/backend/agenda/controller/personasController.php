@@ -25,7 +25,6 @@ if (filter_input(INPUT_POST, 'quequiereHacerelsuaurio') != null) {
 
         if ($action === "registrarse" or $action === "update_Usuario") {
             //se valida que los parametros hayan sido enviados por post
-            echo("Aqui");
             if ((filter_input(INPUT_POST, 'PK_cedula') != null) && (filter_input(INPUT_POST, 'nombre') != null) && (filter_input(INPUT_POST, 'apellido1') != null) && (filter_input(INPUT_POST, 'apellido2') != null) && (filter_input(INPUT_POST, 'fecNacimiento') != null) && (filter_input(INPUT_POST, 'sexo') != null)) {
                 //$personasguardar = Personas::createPersonas();
                 $myPersonas->setPK_cedula(filter_input(INPUT_POST, 'PK_cedula'));
@@ -39,7 +38,8 @@ if (filter_input(INPUT_POST, 'quequiereHacerelsuaurio') != null) {
                 $myUsuarios->setContrasenna(filter_input(INPUT_POST,'Contrasenna'));
                 $myUsuarios->setPersona_IDCedula(filter_input(INPUT_POST,'PK_cedula'));
                 $myUsuarios->setTipo_Usuario(filter_input(INPUT_POST,'Tipo_Usuario'));
-                echo("ho");
+                $myUsuarios->setLat(filter_input(INPUT_POST,'Lat'));
+                $myUsuarios->setLong(filter_input(INPUT_POST,'Long'));
                 if ($action == "registrarse") {
                     $myPersonasBo->add($myPersonas);
                     $myUsuariosBo -> add($myUsuarios);
@@ -47,6 +47,7 @@ if (filter_input(INPUT_POST, 'quequiereHacerelsuaurio') != null) {
                 }
                 if ($action == "update_personas") {
                     $myPersonasBo->update($myPersonas);
+                     $myUsuariosBo -> add($myUsuarios);
                     echo('M~Registro Modificado Correctamente');
                 }
             }
