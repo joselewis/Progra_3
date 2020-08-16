@@ -13,6 +13,8 @@ class Personas extends BaseDomain implements \JsonSerializable{
     private $fecNacimiento;
     private $sexo;
     private $observaciones;
+    private $telefono;
+    private $Correo;
 
     //constructors
     public function __construct() {
@@ -24,17 +26,17 @@ class Personas extends BaseDomain implements \JsonSerializable{
         return $instance;
     }
 
-    public static function createPersonas($PK_cedula, $nombre, $apellido1, $apellido2, $fecNacimiento, $sexo, $observaciones, $ultUsuario, $ultModificacion, $lastUser, $lastModification) {
+    public static function createPersonas($PK_cedula, $nombre, $apellido1, $apellido2, $fecNacimiento, $sexo,$Telefono,$Correo,$observaciones) {
         $instance = new self();
         $instance->PK_cedula        = $PK_cedula;
-        $instance->nombre           = $nombre;
-        $instance->apellido1        = $apellido1;
-        $instance->apellido2        = $apellido2;
-        $instance->fecNacimiento    = $fecNacimiento;
-        $instance->sexo             = $sexo;
-        $instance->observaciones    = $observaciones;
-        $instance->setLastUser($ultUsuario);
-        $instance->setLastModification($ultModificacion);
+        $instance->nombre           =   $nombre;
+        $instance->apellido1        =   $apellido1;
+        $instance->apellido2        =   $apellido2;
+        $instance->fecNacimiento = $fecNacimiento;
+        $instance->sexo             =       $sexo;
+        $instance->observaciones =  $observaciones;
+        $instance->Telefono =            $Telefono;
+        $instance->Correo =               $Correo;
         return $instance;
     }
 
@@ -108,18 +110,26 @@ class Personas extends BaseDomain implements \JsonSerializable{
     public function setObservaciones($observaciones) {
         $this->observaciones = $observaciones;
     }
-
-    /****************************************************************************/
-
-    public function getUltUsuario() {
-        return $this->ultUsuario;
+    
+    function getTelefono() {
+        return $this->telefono;
     }
 
-    public function setUltUsuario($ultUsuario) {
-        $this->ultUsuario = $ultUsuario;
+   function setTelefono($telefono){
+        $this->telefono = $telefono;
+    }
+    
+    /****************************************************************************/
+    
+     function getCorreo() {
+        return $this->Correo;
     }
 
-    /****************************************************************************/
+    function setCorreo($Correo){
+        $this->Correo = $Correo;
+    }
+
+        /****************************************************************************/
     //Convertir el obj a JSON
     /****************************************************************************/
     

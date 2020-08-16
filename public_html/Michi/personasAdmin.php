@@ -105,6 +105,14 @@
                                 <label for="txtTipo_Usuario">Usuario o Chofer</label>
                                 <input type="text" class="form-control" id="txtTipo_Usuario"  placeholder="">
                             </div>
+                            <div class="form-group" id="groupCorreo">
+                                <label for="txtCorreo">Correo</label>
+                                <input type="text" class="form-control" id="txtCorreo"  placeholder="">
+                            </div>
+                            <div class="form-group" id="groupTelefono">
+                                <label for="txtTelefono">Telefono</label>
+                                <input type="text" class="form-control" id="txtTelefono"  placeholder="">
+                            </div>
                             <div class="form-group" id="groupLat">
                                <input type="hidden" class="form-control" id="Lat" >
                             </div>
@@ -115,9 +123,9 @@
                             <center>
                                     <div id="coordenadas"></div>
                                     <div id="map-container" class="z-depth-1" style="height: 500px; width: 600px;"></div>
-                                    <script
-                                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrWBUM4BClWO4HXgDsy8l1tbgpWlxT_xc&callback=mostrarMapa">
-                                    </script>
+                           <script
+                                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrWBUM4BClWO4HXgDsy8l1tbgpWlxT_xc&callback=mostrarMapa">
+                           </script>
                             </center>
                             <div class="form-group">
                                 <input type="hidden" id="typeAction" value="" />

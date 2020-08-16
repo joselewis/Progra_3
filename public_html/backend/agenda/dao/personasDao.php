@@ -23,8 +23,8 @@ class PersonasDao {
 
         global $labAdodb;
         try {
-            $sql = sprintf("insert into Personas (PK_cedula, nombre, apellido1, apellido2, fecNacimiento, sexo, observaciones, lastUser, lastModification) 
-                                          values (%s,%s,%s,%s,%s,%s,%s,%s,CURDATE())",
+            $sql = sprintf("insert into Personas (PK_cedula, nombre, apellido1, apellido2, fecNacimiento, sexo, observaciones, Telefono, Correo) 
+                                          values (%s,%s,%s,%s,%s,%s,%s,%s,%s)",
                     $labAdodb->Param("PK_cedula"),
                     $labAdodb->Param("nombre"),
                     $labAdodb->Param("apellido1"),
@@ -32,7 +32,8 @@ class PersonasDao {
                     $labAdodb->Param("fecNacimiento"),
                     $labAdodb->Param("sexo"),
                     $labAdodb->Param("observaciones"),
-                    $labAdodb->Param("LASTUSER"));
+                    $labAdodb->Param("Telefono"),
+                    $labAdodb->Param("Correo"));
             $sqlParam = $labAdodb->Prepare($sql);
 
             $valores = array();
@@ -44,7 +45,8 @@ class PersonasDao {
             $valores["fecNacimiento"]   = $personas->getfecNacimiento();
             $valores["sexo"]            = $personas->getsexo();
             $valores["observaciones"]   = $personas->getobservaciones();
-            $valores["LASTUSER"]        = $personas->getLastUser();
+            $valores["Telefono"]        = $personas->getTelefono();
+            $valores["Correo"]        = $personas->getCorreo();
 
             $labAdodb->Execute($sqlParam, $valores) or die($labAdodb->ErrorMsg());
         } catch (Exception $e) {
@@ -92,8 +94,8 @@ class PersonasDao {
                                                 fecNacimiento = %s, 
                                                 sexo = %s, 
                                                 observaciones = %s, 
-                                                LASTUSER = %s, 
-                                                LASTMODIFICATION = CURDATE() 
+                                                Telefono = %s, 
+                                                Correo = %s, 
                             where PK_cedula = %s",
                     $labAdodb->Param("nombre"),
                     $labAdodb->Param("apellido1"),
@@ -101,7 +103,8 @@ class PersonasDao {
                     $labAdodb->Param("fecNacimiento"),
                     $labAdodb->Param("sexo"),
                     $labAdodb->Param("observaciones"),
-                    $labAdodb->Param("LASTUSER"),
+                    $labAdodb->Param("Telefono"),
+                    $labAdodb->Param("Correo"),
                     $labAdodb->Param("PK_cedula"));
             $sqlParam = $labAdodb->Prepare($sql);
 
@@ -113,7 +116,8 @@ class PersonasDao {
             $valores["fecNacimiento"]   = $personas->getfecNacimiento();
             $valores["sexo"]            = $personas->getsexo();
             $valores["observaciones"]   = $personas->getobservaciones();
-            $valores["LASTUSER"]        = $personas->getLastUser();
+            $valores["Telefono"]        = $personas->getTelefono();
+             $valores["Correo"]        = $personas->getCorreo();
             $valores["PK_cedula"]       = $personas->getPK_cedula();
             $labAdodb->Execute($sqlParam, $valores) or die($labAdodb->ErrorMsg());
         } catch (Exception $e) {
@@ -171,6 +175,8 @@ class PersonasDao {
                 $returnPersonas->setfecNacimiento($resultSql->Fields("fecNacimiento"));
                 $returnPersonas->setsexo($resultSql->Fields("sexo"));
                 $returnPersonas->setobservaciones($resultSql->Fields("observaciones"));
+                $returnPersonas->setTelefono($resultSql->Fields("Telefono"));
+                $returnPersonas->setCorreo($resultSql->Fields("Correo"));
             }
         } catch (Exception $e) {
             throw new Exception('No se pudo consultar el registro (Error generado en el metodo searchById de la clase PersonasDao), error:'.$e->getMessage());

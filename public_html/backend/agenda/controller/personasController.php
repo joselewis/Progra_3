@@ -25,7 +25,7 @@ if (filter_input(INPUT_POST, 'quequiereHacerelsuaurio') != null) {
 
         if ($action === "registrarse" or $action === "update_Usuario") {
             //se valida que los parametros hayan sido enviados por post
-            if ((filter_input(INPUT_POST, 'PK_cedula') != null) && (filter_input(INPUT_POST, 'nombre') != null) && (filter_input(INPUT_POST, 'apellido1') != null) && (filter_input(INPUT_POST, 'apellido2') != null) && (filter_input(INPUT_POST, 'fecNacimiento') != null) && (filter_input(INPUT_POST, 'sexo') != null)) {
+            if ((filter_input(INPUT_POST, 'PK_cedula') != null) && (filter_input(INPUT_POST, 'nombre') != null) && (filter_input(INPUT_POST, 'apellido1') != null) && (filter_input(INPUT_POST, 'apellido2') != null) && (filter_input(INPUT_POST, 'fecNacimiento') != null) && (filter_input(INPUT_POST, 'sexo') != null) && (filter_input(INPUT_POST, 'Telefono') != null) && (filter_input(INPUT_POST, 'Correo') != null)) {
                 //$personasguardar = Personas::createPersonas();
                 $myPersonas->setPK_cedula(filter_input(INPUT_POST, 'PK_cedula'));
                 $myPersonas->setnombre(filter_input(INPUT_POST, 'nombre'));
@@ -33,7 +33,8 @@ if (filter_input(INPUT_POST, 'quequiereHacerelsuaurio') != null) {
                 $myPersonas->setapellido2(filter_input(INPUT_POST, 'apellido2'));
                 $myPersonas->setfecNacimiento(filter_input(INPUT_POST, 'fecNacimiento'));
                 $myPersonas->setsexo(filter_input(INPUT_POST, 'sexo'));
-                $myPersonas->setLastUser('112540148');
+                $myPersonas->setTelefono(filter_input(INPUT_POST, 'Telefono'));
+                $myPersonas->setCorreo(filter_input(INPUT_POST, 'Correo'));
                 $myUsuarios->setidUsuario(filter_input(INPUT_POST, 'idUsuario'));
                 $myUsuarios->setContrasenna(filter_input(INPUT_POST,'Contrasenna'));
                 $myUsuarios->setPersona_IDCedula(filter_input(INPUT_POST,'PK_cedula'));
@@ -84,8 +85,7 @@ if (filter_input(INPUT_POST, 'quequiereHacerelsuaurio') != null) {
         }
 
         //***********************************************************
-        //***********************************************************
-
+        
         if ($action === "delete_personas") {//accion de eliminar cliente por ID
             //se valida que los parametros hayan sido enviados por post
             if (filter_input(INPUT_POST, 'PK_cedula') != null) {

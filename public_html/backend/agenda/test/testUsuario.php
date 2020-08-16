@@ -5,14 +5,13 @@ require_once ("../domain/Usuario.php");
 
 $obj_Usuario = new Usuario();
 $obj_Usuario->setidUsuario("joselewis");
-$obj_Usuario->setActivo(0);
 $obj_Usuario->setPersona_IDCedula(116160613);
 $obj_Usuario->setTipo_Usuario('Usuario');
 $obj_Usuario->setContrasenna("12345");
 
 $bo_Usuario = new UsuarioBo();
 
-$operacion = 1; //variable para pruebas
+$operacion = 4; //variable para pruebas
 
 switch ($operacion) {
     case 1: //Prueba para guardar en la base de datos

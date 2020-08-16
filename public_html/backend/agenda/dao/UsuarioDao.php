@@ -83,7 +83,7 @@ class UsuarioDao {
         global $labAdodb;
         try {
             $sql = sprintf("update Usuario set  Contrasenna = %s,
-                                                Personas_PK_cedula = %s,
+                                                Persona_IDCedula = %s,
                                                 Tipo_Usuario = %s,
                            where idUsuario = %s",
                     $labAdodb->Param("Contrasenna"),
@@ -149,7 +149,7 @@ class UsuarioDao {
                 $returnUsuario = Usuario::createNullUsuario();
                 $returnUsuario->setidUsuario($resultSql->Fields("idUsuario"));
                 $returnUsuario->setContrasenna($resultSql->Fields("Contrasenna"));
-                $returnUsuario->setPersonas_PK_cedula($resultSql->Fields("Personas_PK_cedula"));
+                $returnUsuario->setPersona_IDCedula($resultSql->Fields("Persona_IDCedula"));
                 $returnUsuario->setTipo_Usuario($resultSql->Fields("Tipo_Usuario"));
                 
             }

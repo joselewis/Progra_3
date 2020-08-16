@@ -47,7 +47,9 @@ function addOrUpdatePersonas() {
                  Contrasenna:                             $("#txtContrasenna").val(),
                  Tipo_Usuario:                               $("#txtTipo_Usuario").val(),
                  Lat:                                              marker.position.lat().toFixed(6),
-                 Long:                                           marker.position.lng().toFixed(6)
+                 Long:                                           marker.position.lng().toFixed(6),
+                 Telefono:                                     $("#txtTelefono").val(),
+                 Correo:                                        $("#txtCorreo").val()
             },
             error: function () { //si existe un error en la respuesta del ajax
                 swal("Error", "Se presento un error al enviar la informacion", "error");

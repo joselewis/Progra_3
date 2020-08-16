@@ -11,7 +11,8 @@ $obj_persona->setApellido2("Lewis");
 $obj_persona->setSexo(1);
 $obj_persona->setObservaciones("Haciendo el papel");
 $obj_persona->setFecNacimiento("19950830");
-$obj_persona->setLastUser("JoseLewis");
+$obj_persona->setTelefono("85344580");
+$obj_persona->setCorreo("josefran952009@gmail.com");
 
 $bo_persona = new PersonasBo();
 
