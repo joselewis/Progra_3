@@ -1,7 +1,7 @@
 
 <html>
     <head>
-        <title>Servicios Mich</title>
+        <title>Servicios Michi</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../CSS/Estilos.css" rel="stylesheet" type="text/css"/>
@@ -33,16 +33,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="../Michi/personasAdmin.php">Registrarse</a>
                                     </li>
-                                    <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Servicios
-                                                </a>
-                                           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                                <a class="dropdown-item" href="Mudanza.html">Mudanza</a>
-                                                <a class="dropdown-item" href="Transporte.html">Transporte</a>
-                                                <a class="dropdown-item" href="Delivery.html">Delivery</a>
-                                           </div>
-                                    </li>
+                                    
                                     <li class="nav-item">
                                                 <a class="nav-link" href="../Michi/Viajes.html">Viaje</a>
                                     </li>
@@ -136,5 +127,6 @@
                         </div>
                     </div>
                 </form>
+                
     </div>
 </div>

@@ -53,15 +53,15 @@ class Personas extends BaseDomain implements \JsonSerializable{
 
     /****************************************************************************/
 
-    public function getNombre() {
+    function getNombre() {
         return $this->nombre;
     }
 
-    public function setNombre($nombre) {
+    function setNombre($nombre){
         $this->nombre = $nombre;
     }
 
-    /****************************************************************************/
+        /****************************************************************************/
 
     public function getApellido1() {
         return $this->apellido1;

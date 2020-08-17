@@ -31,6 +31,7 @@ $(document).ready(function () {
 
 function addOrUpdatePersonas() {
     //Se envia la información por ajax
+    
     if (validar()) {
         $.ajax({
             url: '../backend/agenda/controller/personasController.php', 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Servicios Mich</title>
+        <title>Servicios Michi</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../CSS/Estilos.css" rel="stylesheet" type="text/css"/>
@@ -25,17 +25,8 @@
                                              <a class="nav-link" href="../Michi/Iniciar.html">Iniciar seción</a>
                                     </li>
                                     <li class="nav-item">
-                                             <a class="nav-link" href="../Michi/Trabaje.html">Registrarse</a>
-                                    </li><li class="nav-item dropdown">
-                                             <a class="nav-link dropdown-toggle" href="../Mudanza.html" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                             Servicios
-                                             </a>
-                                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                                     <a class="dropdown-item" href="Mudanza.html">Mudanza</a>
-                                                     <a class="dropdown-item" href="Transporte.html">Transporte</a>
-                                                     <a class="dropdown-item" href="Delivery.html">Delivery</a>
-                                             </div>
-                                    </li>
+                                             <a class="nav-link" href="../Michi/personasAdmin.php">Registrarse</a>
+                                    
                                     <li class="nav-item">
                                              <a class="nav-link" href="../Michi/Viajes.html">Viaje</a>
                                     </li>
@@ -52,12 +43,30 @@
                     </div>
             </nav>
         <br>
-        <h2 class="empresa">El Rapidín CR</h2>
-        <p class="nosotros"><i>Con los avances tecnológicos, actualmente tener un servicio de transporte está al alcance de un solo click.
-        Miles de usuarios cuentan con la posibilidad de ir dónde gusten, enviar o traer mediante mensajería, y/o mudanzas. Además opción 
-        de entrega de comida preparada a domicilio. Siendo un usuario o socio; nuestra mayor importancia será la seguridad de ellos. 
-        Asociandonos a defensores de la seguridad social, así como dando un enfoque primordial a sistemas de aseo impecable; brindando 
-        al cliente una experiencia agradable y segura. El objetivo será siempre ofrecer una asistencia que refleje un ambiente amistoso; respetando 
-        la diversidad comunitaria.</i></p>
+        <form>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Nombre de Usuario</label>
+    <input type="email" class="form-control" id="txtNombre_Usuario" placeholder="">
+  </div>
+            <div class="form-group">
+    <label for="exampleFormControlInput1">Correo</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Example select</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>Que tan bueno es el servicio?</option>
+      <option>2</option>
+      <option>3</option>
+      <option>Cuanto cobran por viaje?</option>
+      <option>5</option>
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+</form>
     </body>
 </html>
