@@ -1,6 +1,5 @@
 <?php
 
-
 require_once("../domain/detalles.php");
 require_once("../dao/detallesDao.php");
 

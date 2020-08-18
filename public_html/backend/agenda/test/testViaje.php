@@ -4,8 +4,6 @@ require_once ("../domain/viajes.php");
 
 $obj_viaje = new Viajes();
 $obj_viaje->setidViaje(1);
-$obj_viaje->setUbicacion_Actual("Heredia");
-$obj_viaje->setUbicacion_Destino("San José");
 $obj_viaje->setUsuario_idUsuario("joselewis");
 $obj_viaje->setLatitud_Origen(14,14);
 $obj_viaje->setLongitud_Origen(13,131);

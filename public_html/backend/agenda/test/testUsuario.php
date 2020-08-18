@@ -8,10 +8,12 @@ $obj_Usuario->setidUsuario("joselewis");
 $obj_Usuario->setPersona_IDCedula(116160613);
 $obj_Usuario->setTipo_Usuario('Usuario');
 $obj_Usuario->setContrasenna("12345");
+$obj_Usuario->setLat(1,1);
+$obj_Usuario->setLong(1,2);
 
 $bo_Usuario = new UsuarioBo();
 
-$operacion = 4; //variable para pruebas
+$operacion = 1; //variable para pruebas
 
 switch ($operacion) {
     case 1: //Prueba para guardar en la base de datos

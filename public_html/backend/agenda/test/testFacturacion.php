@@ -7,7 +7,8 @@ $obj_facturacion = new Facturacion();
 $obj_facturacion->setidFacturacion(12345);
 $obj_facturacion->setFecha_Registro("04082020");
 $obj_facturacion->setMonto_Total('86767');
-$obj_facturacion->setUsuario_idUsuario("joselewis");
+$obj_facturacion->setDetalle_Factura_idDetalle_Factura(1);
+$obj_facturacion->setViaje_idViaje(1);
 $bo_facturacion = new FacturacionBo();
 
 $operacion = 1; //variable para pruebas

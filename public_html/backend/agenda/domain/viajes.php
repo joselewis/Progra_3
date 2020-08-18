@@ -7,8 +7,6 @@ class Viajes extends BaseDomain implements \JsonSerializable{
 
     //attributes
     private $idViaje;
-    private $Ubicacion_Actual;
-    private $Ubicacion_Destino;
     private $Usuario_idUsuario;
     private $Latitud_Origen;
     private $Longitud_Origen;
@@ -49,25 +47,6 @@ class Viajes extends BaseDomain implements \JsonSerializable{
         $this->idViaje = $idViaje;
     }
 
-    /****************************************************************************/
-
-    public function getUbicacion_Actual() {
-        return $this->Ubicacion_Actual;
-    }
-
-    public function setUbicacion_Actual($Ubicacion_Actual) {
-        $this->Ubicacion_Actual = $Ubicacion_Actual;
-    }
-
-    /****************************************************************************/
-
-    public function getUbicacion_Destino() {
-        return $this->Ubicacion_Destino;
-    }
-
-    public function setUbicacion_Destino($Ubicacion_Destino) {
-        $this->Ubicacion_Destino = $Ubicacion_Destino;
-    }
 
     /****************************************************************************/
 

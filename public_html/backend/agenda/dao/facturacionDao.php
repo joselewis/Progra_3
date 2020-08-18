@@ -23,12 +23,12 @@ class FacturacionDao {
 
         global $labAdodb;
         try {
-            $sql = sprintf("insert into Facturacion (idFacturacion, Fecha_Registro, Monto_Total, Usuario_idUsuario) 
+            $sql = sprintf("insert into Facturacion (idFacturacion, Fecha_Registro, Monto_Total, Detalle_Factura_idDetalle_Factura) 
                                              values (%s,CURDATE(),%s,%s)",
                     $labAdodb->Param("idFacturacion"),
             //        $labAdodb->Param("Fecha_Registro"),
                     $labAdodb->Param("Monto_Total"),
-                    $labAdodb->Param("Usuario_idUsuario"));
+                    $labAdodb->Param("Detalle_Factura_idDetalle_Factura"));
             $sqlParam = $labAdodb->Prepare($sql);
 
             $valores = array();
@@ -36,7 +36,7 @@ class FacturacionDao {
             $valores["idFacturacion"]     = $facturacion->getidFacturacion();
          //   $valores["Fecha_Registro"]    = $facturacion->getFecha_Registro();
             $valores["Monto_Total"]       = $facturacion->getMonto_Total();
-            $valores["Usuario_idUsuario"] = $facturacion->getUsuario_idUsuario();
+            $valores["Detalle_Factura_idDetalle_Factura"] = $facturacion->getDetalle_Factura_idDetalle_Factura();
 
             $labAdodb->Execute($sqlParam, $valores) or die($labAdodb->ErrorMsg());
         } catch (Exception $e) {
@@ -79,18 +79,18 @@ class FacturacionDao {
             $sql = sprintf("update Facturacion set idFacturacion = %s, 
                                                 Fecha_Registro = CURDATE(), 
                                                 Monto_Total = %s, 
-                                                Usuario_idUsuario = %s, 
+                                                Detalle_Factura_idDetalle_Factura = %s, 
                             where idFacturacion = %s",
                     $labAdodb->Param("Fecha_Registro"),
                     $labAdodb->Param("Monto_Total"),
-                    $labAdodb->Param("Usuario_idUsuario"));
+                    $labAdodb->Param("Detalle_Factura_idDetalle_Factura"));
             $sqlParam = $labAdodb->Prepare($sql);
 
             $valores = array();
 
             $valores["Fecha_Registro"]          = $facturacion->getFecha_Registro();
             $valores["Monto_Total"]       = $facturacion->getMonto_Total();
-            $valores["Usuario_idUsuario"]       = $facturacion->getUsuario_idUsuario();
+            $valores["Detalle_Factura_idDetalle_Factura"]       = $facturacion->getDetalle_Factura_idDetalle_Factura();
             $valores["idFacturacion"]       = $facturacion->getidFacturacion();
             $labAdodb->Execute($sqlParam, $valores) or die($labAdodb->ErrorMsg());
         } catch (Exception $e) {
@@ -138,7 +138,7 @@ class FacturacionDao {
                 $returnFacturacion->setidFacturacion($resultSql->Fields("idFacturacion"));
                 $returnFacturacion->setFecha_Registro($resultSql->Fields("Fecha_Registro"));
                 $returnFacturacion->setMonto_Total($resultSql->Fields("Monto_Total"));
-                $returnFacturacion->setUsuario_idUsuario($resultSql->Fields("Usuario_idUsuario"));
+                $returnFacturacion->setDetalle_Factura_idDetalle_Factura($resultSql->Fields("Detalle_Factura_idDetalle_Factura"));
             }
         } catch (Exception $e) {
             throw new Exception('No se pudo consultar el registro (Error generado en el metodo searchById de la clase FacturacionDao), error:'.$e->getMessage());

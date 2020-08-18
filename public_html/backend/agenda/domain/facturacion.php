@@ -9,7 +9,7 @@ class Facturacion extends BaseDomain implements \JsonSerializable{
     private $idFacturacion;
     private $Fecha_Registro;
     private $Monto_Total;
-    private $Usuario_idUsuario;
+    private $Detalle_Factura_idDetalle_Factura;
 
     //constructors
     public function __construct() {
@@ -21,12 +21,12 @@ class Facturacion extends BaseDomain implements \JsonSerializable{
         return $instance;
     }
 
-    public static function createFacturacion($idFacturacion, $Fecha_Registro, $Monto_Total, $Usuario_idUsuario) {
+    public static function createFacturacion($idFacturacion, $Fecha_Registro, $Monto_Total, $Detalle_Factura_idDetalle_Factura) {
         $instance = new self();
         $instance->idFacturacion        = $idFacturacion;
         $instance->Fecha_Registro           = $Fecha_Registro;
         $instance->Monto_Total        = $Monto_Total;
-        $instance->Usuario_idUsuario        = $Usuario_idUsuario;
+        $instance->Detalle_Factura_idDetalle_Factura        = $Detalle_Factura_idDetalle_Factura;
         return $instance;
     }
 
@@ -57,12 +57,12 @@ class Facturacion extends BaseDomain implements \JsonSerializable{
         $this->Monto_Total = $Monto_Total;
     }
 
-    public function getUsuario_idUsuario() {
-        return $this->Usuario_idUsuario;
+    public function getDetalle_Factura_idDetalle_Factura() {
+        return $this->Detalle_Factura_idDetalle_Factura;
     }
 
-    public function setUsuario_idUsuario($Usuario_idUsuario) {
-        $this->Usuario_idUsuario = $Usuario_idUsuario;
+    public function setDetalle_Factura_idDetalle_Factura($Detalle_Factura_idDetalle_Factura) {
+        $this->Detalle_Factura_idDetalle_Factura = $Detalle_Factura_idDetalle_Factura;
     }
 
     /****************************************************************************/

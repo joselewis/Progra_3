@@ -23,11 +23,9 @@ class ViajeDao {
 
         global $labAdodb;
         try {
-            $sql = sprintf("insert into Viaje (idViaje, Ubicacion_Actual,  Ubicacion_Destino, Usuario_idUsuario, Latitud_Origen, Longitud_Origen, Longitud_Destino, Latitud_Destino) 
-                                          values (%s,%s,%s,%s,%s,%s,%s,%s)",
+            $sql = sprintf("insert into Viaje (idViaje, Usuario_idUsuario, Latitud_Origen, Longitud_Origen, Longitud_Destino, Latitud_Destino) 
+                                          values (%s,%s,%s,%s,%s,%s)",
                     $labAdodb ->Param ("idViaje"),
-                    $labAdodb ->Param("Ubicacion_Actual"),
-                    $labAdodb ->Param ("Ubicacion_Destino"),
                     $labAdodb ->Param ("Usuario_idUsuario"),
                     $labAdodb ->Param ("Latitud_Origen"),
                     $labAdodb ->Param ("Longitud_Origen"),
@@ -38,8 +36,6 @@ class ViajeDao {
             $valores = array();
 
             $valores["idViaje"]       = $viaje->getidViaje();
-            $valores["Ubicacion_Actual"]          = $viaje->getUbicacion_Actual();
-            $valores["Ubicacion_Destino"]       = $viaje->getUbicacion_Destino();
             $valores["Usuario_idUsuario"]   = $viaje->getUsuario_idUsuario();
             $valores["Latitud_Origen"]            = $viaje->getLatitud_Origen();
             $valores["Longitud_Origen"]   = $viaje->getLongitud_Origen();
@@ -87,16 +83,12 @@ class ViajeDao {
         global $labAdodb;
         try {
             $sql = sprintf("update Viaje set Ubicacion_Actual = %s, 
-                                                Ubicacion_Destino = %s, 
-                                                Latitud_Origen = %s, 
                                                 Longitud_Origen = %s, 
                                                 Longitud_Destino = %s, 
                                                 Latitud_Destino = %s
                                                  
                             where idViaje = %s",
                     
-                    $labAdodb->Param("Ubicacion_Actual"),
-                    $labAdodb->Param("Ubicacion_Destino"),
                     $labAdodb->Param("Latitud_Origen"),
                     $labAdodb->Param("Longitud_Origen"),
                     $labAdodb->Param("Longitud_Destino"),
@@ -106,8 +98,6 @@ class ViajeDao {
 
             $valores = array();
 
-            $valores["Ubicacion_Actual"]          = $viaje->getUbicacion_Actual();
-            $valores["Ubicacion_Destino"]       = $viaje->getUbicacion_Destino();
             $valores["Latitud_Origen"]   = $viaje->getLatitud_Origen();
             $valores["Longitud_Origen"]            = $viaje->getLongitud_Origen();
             $valores["Longitud_Destino"]   = $viaje->getLongitud_Destino();
@@ -163,8 +153,6 @@ class ViajeDao {
             if ($resultSql->RecordCount() > 0) {
                 $returnviaje = Viaje::createNullViaje();
                 $returnviaje->setidViaje($resultSql->Fields("idViaje"));
-                $returnviaje->setUbicacion_Actual($resultSql->Fields("Ubicacion_Actual"));
-                $returnviaje->setUbicacion_Destino($resultSql->Fields("Ubicacion_Destino"));
                 $returnviaje->setLatitud_Origen($resultSql->Fields("Latitud_Origen"));
                 $returnviaje->setLongitud_Origen($resultSql->Fields("Longitud_Origen"));
                 $returnviaje->setLongitud_Destino($resultSql->Fields("Longitud_Destino"));

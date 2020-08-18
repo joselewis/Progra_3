@@ -1,127 +1,90 @@
 <?php
-
 require_once("baseDomain.php");
 
-class Personas extends BaseDomain implements \JsonSerializable{
+class Detalles extends BaseDomain implements \JsonSerializable{
 
     //attributes
-    private $PK_cedula;
-    private $nombre;
-    private $apellido1;
-    private $apellido2;
-    private $fecNacimiento;
-    private $sexo;
-    private $observaciones;
+    private $idDetalle_Factura;
+    private $SubTotal;
+    private $IVA;
+    private $Descuento;
+    private $Facturacion_idFacturacion;
+    private $Viaje_idViaje;
 
     //constructors
     public function __construct() {
         parent::__construct();
     }
 
-    public static function createNullPersonas() {
+    public static function createNullDetalles() {
         $instance = new self();
         return $instance;
     }
 
-    public static function createPersonas($PK_cedula, $nombre, $apellido1, $apellido2, $fecNacimiento, $sexo, $observaciones, $ultUsuario, $ultModificacion, $lastUser, $lastModification) {
+    public static function createDetalles($idDetalle_Factura, $Subtotal, $IVA, $Descuento, $Facturacion_idFacturacion, $Viaje_idViaje) {
         $instance = new self();
-        $instance->PK_cedula        = $PK_cedula;
-        $instance->nombre           = $nombre;
-        $instance->apellido1        = $apellido1;
-        $instance->apellido2        = $apellido2;
-        $instance->fecNacimiento    = $fecNacimiento;
-        $instance->sexo             = $sexo;
-        $instance->observaciones    = $observaciones;
-        $instance->setLastUser($ultUsuario);
-        $instance->setLastModification($ultModificacion);
+        $instance->idDetalle_Factura             = $idDetalle_Factura;
+        $instance->SubTotal                      = $Subtotal;
+        $instance->IVA                           = $IVA;
+        $instance->Descuento                     = $Descuento;
+        $instance->Facturacion_idFacturacion     = $Facturacion_idFacturacion;
+        $instance->Viaje_idViaje                 = $Viaje_idViaje;
         return $instance;
     }
 
-    /****************************************************************************/
-    //properties
-    /****************************************************************************/
-    public function getPK_cedula() {
-        return $this->PK_cedula;
+    //************
+    //*properties*
+    //************
+    function getIdDetalle_Factura() {
+        return $this->idDetalle_Factura;
     }
 
-    public function setPK_cedula($PK_cedula) {
-        $this->PK_cedula = $PK_cedula;
+    function setIdDetalle_Factura($idDetalle_Factura) {
+        $this->idDetalle_Factura = $idDetalle_Factura;
     }
-
-    /****************************************************************************/
-
-    public function getNombre() {
-        return $this->nombre;
-    }
-
-    public function setNombre($nombre) {
-        $this->nombre = $nombre;
-    }
-
-    /****************************************************************************/
-
-    public function getApellido1() {
-        return $this->apellido1;
-    }
-
-    public function setApellido1($apellido1) {
-        $this->apellido1 = $apellido1;
-    }
-
-    /****************************************************************************/
-
-    public function getApellido2() {
-        return $this->apellido2;
-    }
-
-    public function setApellido2($apellido2) {
-        $this->apellido2 = $apellido2;
-    }
-
-    /****************************************************************************/
-
-    public function getFecNacimiento() {
-        return $this->fecNacimiento;
-    }
-
-    public function setFecNacimiento($fecNacimiento) {
-        $this->fecNacimiento = $fecNacimiento;
-    }
-
-    /****************************************************************************/
-
-    public function getSexo() {
-        return $this->sexo;
-    }
-
-    public function setSexo($sexo) {
-        $this->sexo = $sexo;
-    }
-
-    /****************************************************************************/
-
-    public function getObservaciones() {
-        return $this->observaciones;
-    }
-
-    public function setObservaciones($observaciones) {
-        $this->observaciones = $observaciones;
-    }
-
-    /****************************************************************************/
-
-    public function getUltUsuario() {
-        return $this->ultUsuario;
-    }
-
-    public function setUltUsuario($ultUsuario) {
-        $this->ultUsuario = $ultUsuario;
-    }
-
-    /****************************************************************************/
-    //Convertir el obj a JSON
-    /****************************************************************************/
     
+    function getSubTotal() {
+        return $this->SubTotal;
+    }
+
+    function setSubTotal($SubTotal) {
+        $this->SubTotal = $SubTotal;
+    }
+
+    function getIVA() {
+        return $this->IVA;
+    }
+
+    function setIVA($IVA) {
+    $this->IVA = $IVA;
+    }
+
+    function getDescuento() {
+        return $this->Descuento;
+    }
+    
+    function setDescuento($Descuento) {
+        $this->Descuento = $Descuento;
+    }
+    function getFacturacion_idFacturacion() {
+        return $this->Facturacion_idFacturacion;
+    }
+    
+    function setFacturacion_idFacturacion($Facturacion_idFacturacion) {
+        $this->Facturacion_idFacturacion = $Facturacion_idFacturacion;
+    }
+    
+    function getViaje_idViaje() {
+        return $this->Viaje_idViaje;
+    }
+
+    function setViaje_idViaje($Viaje_idViaje){
+        $this->Viaje_idViaje = $Viaje_idViaje;
+    }
+
+    //*************************
+    //*Convertir el obj a JSON*
+    //*************************   
 
     public function jsonSerialize() {
         return get_object_vars($this);
